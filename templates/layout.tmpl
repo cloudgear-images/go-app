@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloudgear Example App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link href="css/app.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active"><a href="/">Info</a></li>
+          <li role="presentation"><a href="http://www.cloudgear.co">Cloudgear</a></li>
+        </ul>
+      </nav>
+      <h3><img src="/img/logo-solo.png" alt="Cloudgear Demo App"></h3>
+      <!-- <h3 class="text-muted">Cloudgear Demo App</h3> -->
+      
+    </div>
+    {{ yield }}
+    <footer class="footer">
+      <p>&copy; Cloudgear 2015</p>
+    </footer>
+  </div>
+</body>
+</html>
