@@ -4,11 +4,14 @@ import (
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/render"
 	"os"
+	"runtime"
 )
 
 type Info struct {
-	Hostname string   `json:"hostname"`
-	Env      []string `json:"env"`
+	Hostname   string   `json:"hostname"`
+	Env        []string `json:"env"`
+	NumCPU     int      `json:"num_cpu"`
+	GoMaxProcs int      `json:"go_max_procs"`
 }
 
 func NewInfo() *Info {
@@ -18,8 +21,10 @@ func NewInfo() *Info {
 	}
 
 	return &Info{
-		Hostname: hostname,
-		Env:      os.Environ(),
+		Hostname:   hostname,
+		Env:        os.Environ(),
+		NumCPU:     runtime.NumCPU(),
+		GoMaxProcs: runtime.GOMAXPROCS(0),
 	}
 }
 
