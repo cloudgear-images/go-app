@@ -28,7 +28,15 @@ func NewInfo() *Info {
 	}
 }
 
+func getEnv(key, defaultValue string) string {
+    if value, ok := os.LookupEnv(key); ok {
+        return value
+    }
+    return defaultValue
+}
+
 func main() {
+	port := getEnv("PORT", "5000")
 	info := NewInfo()
 
 	m := martini.Classic()
@@ -39,5 +47,6 @@ func main() {
 	m.Get("/json", func(r render.Render) {
 		r.JSON(200, info)
 	})
-	m.RunOnAddr(":5000")
+
+	m.RunOnAddr(":"+port)
 }
